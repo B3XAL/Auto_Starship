@@ -55,10 +55,6 @@ style = "bold yellow"
 disabled = false  # Activa el estado de Git
 style = "bold red"
 
-# Deshabilita el módulo de Python
-[python]
-disabled = true
-
 # Configura el tiempo de ejecución del comando
 [time]
 format = "[$duration] "
