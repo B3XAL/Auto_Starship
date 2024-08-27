@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#nano ~/.config/starship.toml
 # Script para instalar Starship y configurar el archivo starship.toml
 
 # Variables
