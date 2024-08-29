@@ -36,35 +36,55 @@ cat <<EOL > "$CONFIG_FILE"
 # Añade una nueva línea después del prompt para mejorar la legibilidad
 add_newline = true
 
-# Configura la apariencia del usuario y el host
+format = """\
+[👤 $username](fg:#7DF9AA)\
+[$time](fg:#FFFFFF)\
+[📁](fg:#1C3A5E)\
+$directory\
+$cmd_duration\
+$character\
+"""
+
+[directory]
+format = "[ $path ]($style)"
+style = "fg:#E4E4E4"
+
 [username]
-style_user = "bold green"
+style_user = "fg:#00FF00"
 show_always = true
 
-# Configura el directorio actual
-[directory]
-truncation_length = 7  # Muestra solo los últimos 3 directorios
-truncation_symbol = "…/"
-
-# Configura la rama de Git
 [git_branch]
-symbol = "🌿 "  # Utiliza un icono de rama
-style = "bold yellow"
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+symbol = "  "
+style = "fg:#1C3A5E"
 
-# Configura el estado de Git
 [git_status]
-disabled = false  # Activa el estado de Git
-style = "bold red"
+format = '[$all_status]($style)'
+style = "fg:#1C3A5E"
 
-# Configura el tiempo de ejecución del comando
-[time]
-format = "[$duration] "
-style = "bold cyan"
+[git_metrics]
+format = "([+$added]($added_style))[]($added_style)"
+added_style = "fg:#1C3A5E"
+deleted_style = "fg:bright-red"
+disabled = false
 
-# Configura el prompt de comandos
+[hg_branch]
+format = "[ $symbol$branch ]($style)"
+symbol = " "
+
+[cmd_duration]
+format = "[  $duration ]($style)"
+style = "fg:bright-white"
+
 [character]
-success_symbol = "[➜ ](bold green) "
-error_symbol = "[✖ ](bold red) "
+success_symbol = '[ ✓](bold green) '
+error_symbol = '[ ✗](#E84D44) '
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "fg:#FFFFFF" # White color
+format = '[[ $time ](fg:#FFFFFF)]($style)'
 EOL
 
 # Verificar si la configuración se creó correctamente
