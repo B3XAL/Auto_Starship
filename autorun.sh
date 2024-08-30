@@ -16,7 +16,7 @@ fi
 
 # Descargar e instalar Starship
 echo "Descargando e instalando Starship..."
-curl -fsSL https://starship.rs/install.sh | bash
+curl -fsSL https://starship.rs/install.sh | sh
 
 # Verificar si la instalación fue exitosa
 if [ ! -x "$STARSHIP_BIN" ]; then
