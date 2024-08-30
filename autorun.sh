@@ -37,12 +37,12 @@ cat <<EOL > "$CONFIG_FILE"
 add_newline = true
 
 format = """\
-[👤 $username](fg:#7DF9AA)\
-[$time](fg:#FFFFFF)\
+[$time|](fg:#333333)\
+[ $username](fg:#7DF9AA)\
 [📁](fg:#1C3A5E)\
 $directory\
-$cmd_duration\
 $character\
+$cmd_duration\
 """
 
 [directory]
@@ -53,27 +53,8 @@ style = "fg:#E4E4E4"
 style_user = "fg:#00FF00"
 show_always = true
 
-[git_branch]
-format = '[ $symbol$branch(:$remote_branch) ]($style)'
-symbol = "  "
-style = "fg:#1C3A5E"
-
-[git_status]
-format = '[$all_status]($style)'
-style = "fg:#1C3A5E"
-
-[git_metrics]
-format = "([+$added]($added_style))[]($added_style)"
-added_style = "fg:#1C3A5E"
-deleted_style = "fg:bright-red"
-disabled = false
-
-[hg_branch]
-format = "[ $symbol$branch ]($style)"
-symbol = " "
-
 [cmd_duration]
-format = "[  $duration ]($style)"
+format = "[ $duration ]($style)"
 style = "fg:bright-white"
 
 [character]
@@ -83,8 +64,8 @@ error_symbol = '[ ✗](#E84D44) '
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "fg:#FFFFFF" # White color
-format = '[[ $time ](fg:#FFFFFF)]($style)'
+style = "fg:#333333" # White color
+format = '[[ $time ](fg:#333333)]($style)'
 EOL
 
 # Verificar si la configuración se creó correctamente
