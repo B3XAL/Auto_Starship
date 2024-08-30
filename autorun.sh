@@ -37,8 +37,8 @@ cat <<EOL > "$CONFIG_FILE"
 add_newline = true
 
 format = """\
-[$time|](fg:#333333)\
-[ $username](fg:#7DF9AA)\
+[$time|](fg:#333333) $env_var\
+[$username](fg:#7DF9AA)\
 [📁](fg:#1C3A5E)\
 $directory\
 $character\
@@ -66,6 +66,13 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "fg:#333333" # White color
 format = '[[ $time ](fg:#333333)]($style)'
+
+# Configuración para mostrar la variable 'objetivo' después del tiempo si está definida
+[env_var]
+variable = "objetivo"
+default = ""
+style = "fg:#FF073A"
+format = "[$env_value ]($style)"
 EOL
 
 # Verificar si la configuración se creó correctamente
